@@ -7,7 +7,17 @@ console.log(ItemTypes);
 
 const itemSource = {
     beginDrag: function(props) {
-        return {}
+        return {
+            name: props.name
+        }
+    },
+    endDrag: function(props, monitor) {
+        const item = monitor.getItem();
+        const dropResult = monitor.getDropResult();
+
+        if(dropResult) {
+            window.alert(`You dropped ${item.name} into ${dropResult.name}`);
+        }
     }
 };
 
@@ -31,9 +41,11 @@ class Stuff extends Component {
         return connectDragSource(
             <div style = {{ 
                 border: "1px solid green",
+                width: "50px",
+                display: "inline-block",
                 opacity: isDragging ? .5 : 1
              }}>
-                <p>&#128009;</p>
+                <p>{name}</p>
             </div>
         );
     }

@@ -18,7 +18,10 @@ class Container extends Component{
                 width: "400px",
                 border: "5px solid red"
             }}>
-                <Stuff name = "Dragon" />    
+                <Stuff name = "&#128009;" />   
+                <Stuff name = "&#9822;" />
+                <Stuff name = "&#128120;" />
+
             </div>
         );
     }
