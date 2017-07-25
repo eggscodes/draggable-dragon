@@ -1,28 +1,33 @@
-module.exports = {
 
-  // This is the entry point or start of our react applicaton
+module.exports = {
+  // sets entry point
   entry: "./index.js",
 
-  // The plain compiled JavaScript will be output into this file
+  // designates file to output plain compiled JavaScript
   output: {
+
+    // filename: 'app.js',
     filename: "bundle.js"
   },
 
-  // This section desribes the transformations we will perform
+  // desribes transformations
   module: {
-    loaders: [
-      {
-        // Only working with files that in in a .js or .jsx extension
-        test: /\.jsx?$/,
-        loader: "babel-loader",
-        query: {
-          // These are the specific transformations we'll be using.
-          presets: ["react", "es2015", "stage-0"]
-        }
+    // works with files with an .js or .jsx extension
+    loaders: [{
+      test: /\.jsx?$/,
+      // processes files in src folder
+      exclude: /node_modules/,
+      loader: 'babel-loader',
+      query: {
+        // specifies transformations
+        presets: ["react", "es2015"]
       }
-    ]
+    }],
   },
-  // This lets us debug our react code in chrome dev tools. Errors will have lines and file names
-  // Without this the console says all errors are coming from just coming from bundle.js
+
+  // starts Webpack in a watch mode, so Webpack will rebuild the bundle on changes
+  watch: true,
+
+  // lets us debug our react code in Chrome dev tools
   devtool: "eval-source-map"
 };

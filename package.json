@@ -1,31 +1,26 @@
 {
-  "name": "react-example",
+  "name": "draggable-dragon",
   "version": "1.0.0",
   "description": "",
-  "main": "public/index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -w"
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mamorvan/draggable-dragon.git"
   },
-  "author": "Ahmed Haque",
+  "author": "me",
   "license": "ISC",
   "dependencies": {
-    "babel-polyfill": "^6.23.0",
-    "prop-types": "^15.5.10",
-    "react": "^0.14.3",
+    "react": "^15.4.1",
     "react-dnd": "^2.4.0",
     "react-dnd-html5-backend": "^2.4.1",
-    "react-dom": "^0.14.3"
+    "react-dom": "^15.4.1"
   },
   "devDependencies": {
-    "autoprefixer-loader": "^2.1.0",
-    "babel-core": "^6.25.0",
-    "babel-loader": "^6.4.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "install": "^0.10.1",
-    "webpack": "^1.10.5",
-    "webpack-dev-server": "^1.10.1"
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "nodemon": "^1.11.0",
+    "webpack": "^1.14.0"
   }
 }
