@@ -1,28 +1,26 @@
 import React, { Component } from "react";
 import { DropTarget } from "react-dnd";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import ItemTypes from "./Constants";
 
 console.log(ItemTypes);
 
 const boxTarget = {
-    drop( ) {
+    drop: function() {
         return { name: "Box" };
     }
 };
 
-@dropTarget(ItemTypes.STUFF, boxTarget, (connect, monitor) => ({
-    connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver(),
-    canDrop: monitor.canDrop()
-})
-)
-export default class Box extends Component {
-    static PropTypes = {
-        connectDropTarget: PropTypes.func.isRequired,
-        isOver: PropTypes.bool.isRequired,
-        canDrop: PropTypes.bool.isRequired
-    };
+function collect(connect, monitor) {
+    return {
+        connectDropTarget: connect.dropTarget(),
+        isOver: monitor.isOver(),
+        canDrop: monitor.canDrop()
+    }
+}
+
+class Box extends Component {
+
 
     render() {
         const { canDrop, isOver,  connectDropTarget } = this.props;
@@ -51,3 +49,5 @@ export default class Box extends Component {
         );
     }
 }
+
+module.exports = DropTarget(ItemTypes.STUFF, boxTarget, collect)(Box);
