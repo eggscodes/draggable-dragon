@@ -1,3 +1,5 @@
-export default ItemTypes = {
+const ItemTypes = {
    STUFF: "stuff"
 };
+
+export default ItemTypes;

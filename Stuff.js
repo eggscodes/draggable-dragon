@@ -1,24 +1,13 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { DragSource } from "react-dnd";
 import ItemTypes from "./Constants";
 
 console.log(ItemTypes);
 
 const itemSource = {
-    beginDrag(props) {
-        return {
-            name: props.name
-        };
-    },
-
-    endDrag(props, monitor) {
-        const item = monitor.getItem();
-        const dropResult = monitor.getDropResult();
-
-        if (dropResult) {
-            window.alert( `You dropped ${item.name} into ${dropResult.name}`);
-        }
+    beginDrag: function(props) {
+        return {}
     }
 };
 
@@ -26,30 +15,30 @@ function collect(connect, monitor) {
     return {
         connectDragSource: connect.dragSource(),
         isDragging: monitor.isDragging()
-    };
-}
-const propTypes = {
-    name: PropTypes.string.isRequired,
-    isDragging: PropTypes.bool.isRequired,
-    connectDragSource: PropTypes.func.isRequired
+    }
 };
+// const propTypes = {
+//     name: PropTypes.string.isRequired,
+//     isDragging: PropTypes.bool.isRequired,
+//     connectDragSource: PropTypes.func.isRequired
+// };
 
-class Stuff  {
+class Stuff extends Component {
 
     render() {
         const { name, isDragging, connectDragSource } = this.props;
-
+        console.log(this.props);
         return connectDragSource(
             <div style = {{ 
-                border: "1px solid red",
+                border: "1px solid green",
                 opacity: isDragging ? .5 : 1
              }}>
-                <p>{name}</p>
+                <p>&#128009;</p>
             </div>
         );
     }
 };
 
-Stuff.propTypes = propTypes;
+// Stuff.propTypes = propTypes;
 
-export default DragSource(ItemTypes.STUFF, itemSource, collect)(Stuff);
+module.exports = DragSource(ItemTypes.STUFF, itemSource, collect)(Stuff);
