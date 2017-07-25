@@ -35,9 +35,8 @@ class Box extends Component {
 
         return connectDropTarget (
             <div style = {{
-                height: "50px",
-                width: "50px",
-                padding: "5px",
+                height: "100px",
+                width: "100px",
                 border: "1px solid blue",
                 borderRadius: "50%",
                 margin: "10px",
